@@ -1,16 +1,19 @@
+//ES6 Version Code
 import { useState } from "react";
 import "./styles.css";
 
 export default function App() {
-  var [inputValue, setInputValue] = useState("Meaning will appear here ^_^");
-  function inputChangeHandler(event) {
-    var input = event.target.value;
+  let [inputValue, setInputValue] = useState("Meaning will appear here ^_^");
+  const inputChangeHandler = (event) => {
+    let input = event.target.value;
+
+    let animal;
 
     if (input in animalDictionary) {
-      var have = animalDictionary[input];
-      var animal = input + " " + have;
+      let have = animalDictionary[input];
+      animal = input + " " + have;
     } else {
-      var animal = "Can't find in Database";
+      animal = "Can't find in Database";
     }
 
     // var animal = animalDictionary[event.target.value];
@@ -19,9 +22,9 @@ export default function App() {
     //   animal = "We don't have this one in the Database";
     // }
     setInputValue(animal);
-  }
+  };
 
-  var animalDictionary = {
+  const animalDictionary = {
     "🐵": "Monkey",
     "🦍": "Gorilla",
     "🐶": "Dog",
@@ -40,13 +43,13 @@ export default function App() {
     "🐼": "Panda"
   };
 
-  var animalList = Object.keys(animalDictionary);
+  let animalList = Object.keys(animalDictionary);
 
-  function emojiClickHandler(emoji) {
-    var animal = animalDictionary[emoji];
+  const emojiClickHandler = (emoji) => {
+    let animal = animalDictionary[emoji];
 
-    setInputValue(emoji + " " + animal);
-  }
+    setInputValue(`${emoji}  ${animal}`);
+  };
 
   return (
     <div className="App">
